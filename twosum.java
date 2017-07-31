@@ -1,8 +1,4 @@
-/*
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-*/
 import java.util.*;
 
 public class twosum 
@@ -52,7 +48,9 @@ public class twosum
             if (sum == target)//find target
             {
                 find1 = original[i];//samller one
+                 result[0] = i; 
                find2 = original[j];
+               result[1] = i; 
                  break;
             }
             else if (sum < target)
@@ -79,17 +77,53 @@ public class twosum
                     break;
                 }
             }
-
+            
         }
         
         return result;        
     }//solution2 end.    
     
-    
+    private static int[] mysolution3(int[] numbers, int target) 
+    {
+        
+        int[] result = {-1, -1};
+
+                
+        Arrays.sort(numbers);
+        int i, j, sum;
+        result[0] =-1;
+        result[1] =-1;
+        
+        i = 0;// one pointer to start
+        j = numbers.length-1;// another pointer to end
+        
+        while(i<=j)
+        {
+            sum = numbers[i] + numbers[j];         
+            if (sum == target)//find target
+            {
+                 result[0] = i;//samller one
+                result[1] = j;
+                 break;
+            }
+            else if (sum < target)
+            {
+                i++;
+            }
+            else
+            {
+                j--;
+            }
+        }
+        
+        return result;  
+        
+        
+    }    
     public static void main (String[] args) 
         {
-            int[] list = {3,3};
-            int[] myresult = mysolution2(list, 6);            
+            int[] list = {2, 3,4};
+            int[] myresult = mysolution3(list, 6);            
 
             System.out.println("");
 
