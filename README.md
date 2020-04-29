@@ -1,2 +1,2 @@
 # AlgorCode
-Code java for algorthim
+Code java for algorthim in LeetCode
